@@ -1,0 +1,87 @@
+﻿@model IEnumerable<QuadroMedalhasRepository.DTO.QuadroMedalhaDTO>
+
+<div class="panel panel-default">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.pais)
+                </th>
+                <th>
+                    @Html.DisplayName("OURO")
+                </th>
+
+                <th>
+                    @Html.DisplayName("Quantidade")
+                </th>
+
+                <th>
+                    @Html.DisplayName("PRATA")
+                </th>
+
+                <th>
+                    @Html.DisplayName("Quantidade")
+                </th>
+
+                <th>
+                    @Html.DisplayName("BRONZE")
+                </th>
+
+                <th>
+                    @Html.DisplayName("Quantidade")
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.pais)
+                        </td>
+
+                        @foreach (var tipo in item.medalhas)
+                        {
+                            if (tipo.descricao == "OURO")
+                            {
+                                <td>
+                                    @Html.DisplayFor(modelItem => tipo.descricao)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => tipo.Quantidade)
+                                </td>
+                            }
+
+                            if (tipo.descricao == "PRATA")
+                            {
+                                <td>
+                                    @Html.DisplayFor(modelItem => tipo.descricao)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => tipo.Quantidade)
+                                </td>
+                            }
+
+                            if (tipo.descricao == "BRONZE")
+                            {
+                                <td>
+                                    @Html.DisplayFor(modelItem => tipo.descricao)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => tipo.Quantidade)
+                                </td>
+                            }
+
+                        }
+
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</div>

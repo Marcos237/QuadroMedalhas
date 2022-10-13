@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div>
+
+    @{
+        Html.RenderPartial("_QuadroMedalhaListaPartial");
+    }
+
+    <br />
+    <br />
+
+    @using (Html.BeginForm("Buscar", "Home", FormMethod.Post, new { id = "submitForm" }))
+    {
+
+        <div class=col-md-12>
+            <input class="btn btn-dark" id="buscar" type="submit">
+
+        </div>
+    }
+</div> 
